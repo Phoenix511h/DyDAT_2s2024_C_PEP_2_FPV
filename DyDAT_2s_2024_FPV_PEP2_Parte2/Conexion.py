@@ -1,6 +1,6 @@
 ###################################### 
 # Instalar librerias en requeriments
-## pip install -r"./requeriments.txt"
+## pip install -r"./requirements.txt"
 
 import pandas as pd
 import geopandas as gpd
