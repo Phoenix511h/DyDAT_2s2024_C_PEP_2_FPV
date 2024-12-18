@@ -30,52 +30,8 @@ Para ejecutar el script correctamente, asegúrese de tener instalados los siguie
 
   ```sql
   CREATE EXTENSION postgis;
-## 2. Resumen del proceso completo
-### Tablas Utilizadas en el Esquema "entradas"
 
-- **`SITIOERIAZO_13106`**: Contiene información poligonal sobre los sitios eriazos de la comuna de Estación Central.
-- **`PRC13106`**: Contiene el Plan Regulador Comunal de Estación Central, que define las zonas permitidas para la instalación de gasolineras.
-- **`GASOLINERA`**: Contiene la ubicación de las gasolineras existentes en la comuna.
-- **`MANZANA13106`**: Contiene datos demográficos a nivel de manzana, utilizados para calcular la población en el área de influencia.
-
-### Pasos del Análisis
-
-1. **Agregar Identificador Único a `SITIOERIAZO_13106`**:
-   - Se agrega una columna `gid` como clave primaria de tipo SERIAL si no existe.
-
-2. **Crear Tabla con Predios Eriazos en Zonas Permitidas (`PRC13106`)**:
-   - Se crea la tabla `SITIO_ERIAZO_GEOPROCESO` en el esquema de `resultados` con los predios eriazos que intersectan con las zonas permitidas de acuerdo con la zonificación de `PRC13106`.
-
-3. **Agregar Columna de Distancia a Gasolineras**:
-   - Se añade la columna `distancia_gasolinera` en la tabla `SITIO_ERIAZO_GEOPROCESO`, que almacena la distancia mínima a las gasolineras existentes.
-
-4. **Calcular la Distancia Mínima a Gasolineras**:
-   - Se calcula y actualiza la columna `distancia_gasolinera` con la distancia mínima desde cada predio eriazo a las gasolineras existentes, en un radio de 10 km.
-
-5. **Calcular el Área en km²**:
-   - Se añade la columna `area_km2` a la tabla `SITIO_ERIAZO_GEOPROCESO`, calculando el área de cada predio en kilómetros cuadrados.
-
-6. **Contar la Población en el Área de Influencia**:
-   - Se crean buffers de 1.5 km alrededor de cada predio eriazo y se realiza un spatial join con las manzanas censales (`MANZANA13106`) para contar la población total en el área de influencia.
-
-7. **Seleccionar los Sitios Eriazos Cumpliendo las Condiciones**:
-   - Se crea una nueva tabla `SITIO_ERIAZO_SELECCIONADO` en el esquema de `resultados` con los predios que cumplen las condiciones de zonificación, área mínima, distancia a gasolinera y población total.
-
-8. **Calcular la Normalización Min-Max**:
-   - Se normalizan las columnas `area_km2`, `distancia_gasolinera` y `poblacion_total` mediante Min-Max normalization.
-
-9. **Jerarquizar Según un Indicador**:
-   - Se añade la columna `indicador` a la tabla `SITIO_ERIAZO_SELECCIONADO`, calculando un indicador ponderado con los siguientes pesos:
-     - 40% para `area_km2_minmax`
-     - 30% para `distancia_gasolinera_minmax`
-     - 30% para `poblacion_total_minmax`
-
-10. **Seleccionar los 10 Mejores Sitios Eriazos**:
-    - Se seleccionan los 10 sitios eriazos con los valores más altos del `indicador`, ordenados de manera descendente.
-
-Realizados todos los procesos anteriores, la tabla geografica queda almacenada en el esquema `resultados` con el nombre de `SITIO_ERIAZO_SELECCIONADO`
-
-## 3. Instrucciones
+## 2. Instrucciones
 ### Paso 1: Configurar el servidor PostgreSQL
 1. Abre **pgAdmin 4** y asegúrate de que el servidor PostgreSQL esté en ejecución.
 2. Crea una base de datos llamada **PEP2** si aún no existe.
@@ -83,7 +39,8 @@ Realizados todos los procesos anteriores, la tabla geografica queda almacenada e
 ### Paso 2: Preparar el entorno del proyecto
 1. Abre **Visual Studio Code (VSCode)** y carga la carpeta del proyecto:  
    `DyDAT_2s_2024_FPV_PEP2_Parte2`.
-2. En la carpeta del proyecto, instala las librerías necesarias ejecutando el siguiente comando en la terminal:  
+2. Utilizar el entorno virtual `entorno`
+3. En la carpeta del proyecto, instala las librerías necesarias ejecutando el siguiente comando en la terminal:  
    ```bash
    pip install -r"./requeriments.txt"
 
@@ -143,7 +100,7 @@ El archivo `./CONSULTAS/GEOPROCESOS.sql` contiene todas las consultas necesarias
 
 ### Resultados Generados
 Al final del proceso, se obtendrán las siguientes tablas en el esquema `resultados`:
-- **`SITIO_ERIAZO_GEOPROCESO`**: Contiene los sitios eriazos procesados con datos intermedios como área, distancia a gasolineras y población en el área de influencia.
+- **`SITIO_ERIAZO_GEOPROCESO`**: Contiene los sitios eriazos procesados con datos intermedios como área, distancia a gasolineras y población en el área de influencia, zonificación del sitio eriazo.
 - **`SITIO_ERIAZO_SELECCIONADO`**: Lista final de sitios eriazos seleccionados, jerarquizados según un indicador compuesto que evalúa su idoneidad para la instalación de una nueva gasolinera.
 
 
