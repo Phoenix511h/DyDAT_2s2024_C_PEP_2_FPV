@@ -1,5 +1,5 @@
 ###################################### 
-## utilizar el entorno virtual "entorno"
+## Crear y utilizar el entorno virtual
 ##Instalar librerias en requeriments
 ## pip install -r"./requirements.txt"
 ######################################
