@@ -118,6 +118,8 @@ def crear_motor_sqlalchemy():
         print(f"Error al crear el motor de conexión SQLAlchemy: {e}")
         exit()
 ```
+![image](https://github.com/user-attachments/assets/c56e780d-7fdd-4daf-80ae-03503f212af2)
+
 ## 4. Arranque del Proyecto
 
 ### Ejecución de `Conexion.py`
