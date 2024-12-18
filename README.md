@@ -1,6 +1,6 @@
 <h2 align="center">
   <img width="200" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Usach_P1.png" alt="logo Usach" >
-  <img width="500" src="https://www.digea.usach.cl/digea/site/artic/20230110/imag/foto_0000000620230110165150/LOGO_DIGEA_MAIN_01.png" alt="logo DIGEA">
+  <img width="450" src="https://www.digea.usach.cl/digea/site/artic/20230110/imag/foto_0000000620230110165150/LOGO_DIGEA_MAIN_01.png" alt="logo DIGEA">
 </h2>
 
 # Manual de Usuario: Selección de Sitio para Nueva Gasolinera en Estación Central
@@ -8,7 +8,7 @@
 <p><strong>DyDAT_2s2024_C_PEP_2_FPV</strong></p>
 
 ## Resumen
-Este manual describe el procedimiento para ejecutar un script SQL que emplea una base de datos espacial PostGIS con el objetivo de identificar los sitios eriazos más idóneos en la comuna de Estación Central. La selección de los sitios se realiza considerando criterios como la zonificación, la proximidad a gasolineras existentes, el área mínima requerida para su instalación y habitantes en el área de influencia del predio. A partir de estos factores, se genera un indicador que permite jerarquizar las mejores ubicaciones para la construcción de una nueva gasolinera.
+Este manual describe el procedimiento para ejecutar un script SQL que emplea una base de datos espacial PostGIS con el objetivo de identificar los sitios eriazos más idóneos en la comuna de Estación Central para colocar una **GASOLINERA**. La selección de los sitios se realiza considerando criterios como la zonificación, la proximidad a gasolineras existentes, el área mínima requerida para su instalación y habitantes en el área de influencia del predio. A partir de estos factores, se genera un indicador que permite jerarquizar las mejores ubicaciones para la construcción de una nueva gasolinera.
 
 
 
