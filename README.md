@@ -38,8 +38,10 @@ Para ejecutar el script correctamente, asegúrese de tener instalados los siguie
 
 ### Paso 2: Preparar el entorno del proyecto
 1. Abre **Visual Studio Code (VSCode)** y carga la carpeta del proyecto:  
-   `DyDAT_2s_2024_FPV_PEP2_Parte2`.
-2. Utilizar el entorno virtual `entorno`
+
+2. Crear el entorno virtual, para instalar y utilizar las librerias.
+   ```bash
+   python -m venv .venv
 3. En la carpeta del proyecto, instala las librerías necesarias ejecutando el siguiente comando en la terminal:  
    ```bash
    pip install -r"./requeriments.txt"
