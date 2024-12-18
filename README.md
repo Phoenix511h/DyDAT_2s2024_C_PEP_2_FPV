@@ -5,6 +5,6 @@
 </h2>
 <h2> Instrucciones Generales
 <p></p> Se requiere instalar los requeriments mencionados en el archivo ](/requirements.txt)
-Abrir el archuvivo ](DyDAT_2s_2024_FPV_PEP2_Parte2/conexion.py)
+- Abrir el archivo [conexion.py](DyDAT_2s_2024_FPV_PEP2_Parte2/conexion.py)
 
 
