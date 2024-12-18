@@ -118,9 +118,9 @@ def crear_motor_sqlalchemy():
         print(f"Error al crear el motor de conexión SQLAlchemy: {e}")
         exit()
 ```
-# 4. Arranque del Proyecto
+## 4. Arranque del Proyecto
 
-## Ejecución de `Conexion.py`
+### Ejecución de `Conexion.py`
 El script `Conexion.py` se encarga de:
 
 1. **Conectar a la base de datos en PostgreSQL**: Utiliza las credenciales configuradas previamente para establecer una conexión con la base de datos **PEP2**.
@@ -133,13 +133,13 @@ El script `Conexion.py` se encarga de:
    - **`GASOLINERA`**: Ubicación de gasolineras existentes.
    - **`MANZANA13106`**: Información demográfica por manzana censal.
 
-## Proceso SQL
+### Proceso SQL
 El archivo `./CONSULTAS/GEOPROCESOS.sql` contiene todas las consultas necesarias para el análisis y procesamiento de los datos. Estas consultas realizan operaciones de geoprocesamiento, incluyendo:
 
 1. Identificación y selección de sitios eriazos que cumplen con los criterios definidos.
 2. Cálculo de indicadores espaciales y jerarquización de sitios.
 
-## Resultados Generados
+### Resultados Generados
 Al final del proceso, se obtendrán las siguientes tablas en el esquema `resultados`:
 - **`SITIO_ERIAZO_GEOPROCESO`**: Contiene los sitios eriazos procesados con datos intermedios como área, distancia a gasolineras y población en el área de influencia.
 - **`SITIO_ERIAZO_SELECCIONADO`**: Lista final de sitios eriazos seleccionados, jerarquizados según un indicador compuesto que evalúa su idoneidad para la instalación de una nueva gasolinera.
