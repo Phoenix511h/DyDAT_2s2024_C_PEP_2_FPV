@@ -3,4 +3,8 @@
 <p> DyDAT_2s2024_C_PEP_2_FPV
 <p>Desarrollo de Script para ejecutar procesos en una Base de Datos Espacial
 </h2>
-<h2> Indice
+<h2> Instrucciones Generales
+<p> Se requiere instalar los requeriments mencionados en el archivo ](/requirements.txt)
+Abrir el archuvo ](DyDAT_2s_2024_FPV_PEP2_Parte2/conexion.py)
+
+
